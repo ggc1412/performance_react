@@ -1,9 +1,11 @@
 import React from 'react';
+import api from "./api";
 
 function App() {
+  console.log(api);
   return (
     <div className="App">
-      공연 정보
+      apitest중
     </div>
   );
 }
