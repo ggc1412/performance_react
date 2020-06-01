@@ -1,8 +1,14 @@
 import React from 'react';
 import api from "./api";
 
-function App() {
-  console.log(api);
+let data = {};
+
+const getApi = () => {
+  
+}
+
+const App = () => {
+  api.res.then(res => console.log(res));
   return (
     <div className="App">
       apitest중

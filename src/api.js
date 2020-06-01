@@ -34,21 +34,10 @@ queryParams +=
 
 const apiUrl = url + queryParams;
 
-const api = async () => {
-  const data = await axios.get(
+const api = {
+  res:fetch(
     "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
-  );
-  console.log(data);
-  return data;
-};
-
-const result = async () => {
-  const result = await api();
-  const rr = result.then();
-  console.log(rr);
-  return rr;
-};
-
-const resu = result();
-
-export default resu;
+  )
+  // async는 항상 promise 객체를 반환. 때문에 비동기 처리 필요
+  };
+export default api;
