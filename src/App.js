@@ -1,19 +1,37 @@
-import React from 'react';
-import api from "./api";
-
-let data = {};
-
-const getApi = () => {
-  
-}
+import React, { useState } from "react";
+import axios from "axios";
 
 const App = () => {
-  api.res.then(res => console.log(res));
+  const [data, setData] = useState();
+
+  const url =
+    "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/d/";
+
+  const API_KEY = decodeURIComponent(
+    "4d9vPm7Zg5kyGpOy7iZaq0n440clXZbVarqfEoJTt%2FJuztOA275ZerFRXZz5HKLqqSmGmDEZEXVy8xtLbTWM%2Bw%3D%3D"
+  );
+
+  const getData = async () => {
+    const res = await axios.get(url, {
+      params: {
+        ServiceKey: API_KEY,
+        ComMsgHeader: "",
+        RequestTime: "20100810:23003422",
+        CallBackURI: "",
+        MsgBody: "",
+        seq: 12341,
+      },
+    });
+    const { data } = await res;
+    console.log(data);
+    setData(data);
+  };
+
   return (
     <div className="App">
-      apitest중
+      <button onClick={getData}>api</button>
     </div>
   );
-}
+};
 
 export default App;

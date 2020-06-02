@@ -35,7 +35,7 @@ queryParams +=
 const apiUrl = url + queryParams;
 
 const api = {
-  res:fetch(
+  movie:fetch(
     "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
   )
   // async는 항상 promise 객체를 반환. 때문에 비동기 처리 필요
